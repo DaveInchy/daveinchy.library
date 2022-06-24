@@ -1,0 +1,9 @@
+#!/bin/bash
+#!/bin/sh
+_overwolf_app_name="${1:-'owProject/'}"
+_overwolf_app_language="${2:-'ts'}"
+_overwolf_app_language=$(([[ "${_overwolf_app_language}" -eq "ts" ]] && echo "native" || echo "ts"));
+git clone https://github.com/overwolf/sample-app.git ${1:-'overwolf-application.project/'} && \
+cd ${1:-'overwolf-application.project/'} && \
+rm -rf ./${_overwolf_app_language} && \
+mv ./${2:-'ts'} ./app;
